@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="LoginMySQL.csproj">
+    <BuildType Project="Debug" />
+  </Project>
+</Solution>
