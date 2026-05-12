@@ -63,8 +63,12 @@ namespace Menu.Vistas
 
         private void btnMatricular_Click(object sender, EventArgs e)
         {
-            FmFazerMatricula fm = new FmFazerMatricula(Estudante);
-            fm.ShowDialog(this);
+            if (Estudante != null)
+            {
+                FmFazerMatricula fm = new FmFazerMatricula(Estudante);
+                fm.ShowDialog(this);
+            }
+            
         }
     }
 }

@@ -14,15 +14,18 @@ namespace LoginMySQL.Views
     {
         private Estudante Estudante;
         private Matricula Matricula;
+        private int IdDisciplina;
         public FmFazerMatricula(Estudante estudante)
         {
             InitializeComponent();
             CarregarEstudante(estudante);
             Estudante = estudante;
+            
         }
 
         private void FmFazerMatricula_Load(object sender, EventArgs e)
         {
+            DgvDisciplinas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DgvDisciplinas.DataSource = DisciplinaDAL.TodosDisciplinas();
         }
 
@@ -56,18 +59,32 @@ namespace LoginMySQL.Views
             Professor professor = new Professor();
 
             Disciplina disc = new Disciplina(id, nome, codigo, ch, professor);
-            
-            MessageBox.Show(Estudante.ToString());
+
+            ;
 
             Matricula = new Matricula(0, "Activa", Estudante, disc);
+            btnMatricular.Visible = ActivarMatricula(Matricula);
 
         }
 
         private void btnMatricular_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(Matricula.ToString());
+            try
+            {
+                MessageBox.Show(MatriculaDAL.InserirMatricula(Matricula));
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona Uma Disciplina" + ex.Message);
+               
+            }
+            
+        }
 
-           MessageBox.Show(MatriculaDAL.InserirMatricula(Matricula));
+        private bool ActivarMatricula(Matricula m)
+        {
+            return m.GetType().GetProperty("Estudante") != null;
         }
     }
 }
