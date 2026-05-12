@@ -32,7 +32,7 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            txtUsuario = new TextBox();
+            txtEmail = new TextBox();
             txtPassword = new TextBox();
             label3 = new Label();
             btnLogin = new Button();
@@ -56,29 +56,30 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI Variable Display", 14.25F);
-            label1.Location = new Point(17, 111);
+            label1.Location = new Point(53, 111);
             label1.Name = "label1";
-            label1.Size = new Size(76, 26);
+            label1.Size = new Size(54, 26);
             label1.TabIndex = 1;
-            label1.Text = "Usuário";
+            label1.Text = "Email";
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Variable Display", 14.25F);
-            label2.Location = new Point(2, 174);
+            label2.Location = new Point(16, 170);
             label2.Name = "label2";
             label2.Size = new Size(91, 26);
             label2.TabIndex = 2;
             label2.Text = "Password";
             // 
-            // txtUsuario
+            // txtEmail
             // 
-            txtUsuario.Font = new Font("Segoe UI Variable Display", 14.25F);
-            txtUsuario.Location = new Point(113, 104);
-            txtUsuario.Name = "txtUsuario";
-            txtUsuario.Size = new Size(341, 33);
-            txtUsuario.TabIndex = 3;
+            txtEmail.Font = new Font("Segoe UI Variable Display", 14.25F);
+            txtEmail.Location = new Point(113, 104);
+            txtEmail.Name = "txtEmail";
+            txtEmail.Size = new Size(341, 33);
+            txtEmail.TabIndex = 3;
+            txtEmail.Text = "anny@gmail.com";
             // 
             // txtPassword
             // 
@@ -88,6 +89,7 @@
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(341, 33);
             txtPassword.TabIndex = 4;
+            txtPassword.Text = "123456";
             // 
             // label3
             // 
@@ -151,7 +153,7 @@
             Controls.Add(btnLogin);
             Controls.Add(label3);
             Controls.Add(txtPassword);
-            Controls.Add(txtUsuario);
+            Controls.Add(txtEmail);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
@@ -170,7 +172,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
-        private TextBox txtUsuario;
+        private TextBox txtEmail;
         private TextBox txtPassword;
         private Label label3;
         private Button btnLogin;

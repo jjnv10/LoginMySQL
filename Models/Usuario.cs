@@ -38,5 +38,10 @@ namespace LoginMySQL.Models
             Password = string.Empty;
         }
 
+        public override string ToString()
+        {
+            return $"Nome: {Nome}, Email: {Utilizador}";
+        }
+
     }
 }

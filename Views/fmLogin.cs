@@ -25,8 +25,8 @@ namespace LoginMySQL.Views
             var authService = new AuthService("");
 
             Usuario? utilizador = await authService.LoginAsync(
-                usuario: txtUsuario.Text,
-                password: txtPassword.Text
+                Email: txtEmail.Text,
+                Password: txtPassword.Text
             );
 
             if (utilizador != null)

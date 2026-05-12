@@ -2,13 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using MySql.Data.MySqlClient;
+
 
 namespace LoginMySQL.DAL
 {
     public class LoginDAL
     {
-        public Usuario FazerLogin(string usuario, string senha)
+        public static Usuario FazerLogin(string usuario, string senha)
         {
             
 

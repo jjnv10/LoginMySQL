@@ -23,24 +23,23 @@ namespace LoginMySQL.DAL
 
 
         public async Task<Usuario?> LoginAsync(
-            string usuario,
-            string password,
+            string Email,
+            string Password,
             CancellationToken cancellationToken = default)
         {
-            if (string.IsNullOrWhiteSpace(usuario) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(Email) || string.IsNullOrWhiteSpace(Password))
                 return null;
 
             const string sql = @"
-            SELECT id, nome, email, usuario, password_hash, activo, role
+            SELECT id, nome, email, Email, password_hash, activo, role
             FROM utilizadores
-            WHERE usuario = @usuario
-            LIMIT 1;";
+            WHERE email = @email LIMIT 1;";
 
             await using var connection = ConexaoMySQL.ObterConexao();
             await connection.OpenAsync(cancellationToken);
 
             await using var command = new MySqlCommand(sql, connection);
-            command.Parameters.AddWithValue("@usuario", usuario.Trim());
+            command.Parameters.AddWithValue("@email", Email.Trim());
 
             await using var reader = await command.ExecuteReaderAsync(cancellationToken);
 
@@ -54,7 +53,7 @@ namespace LoginMySQL.DAL
 
             string passwordHash = reader.GetString(reader.GetOrdinal("password_hash"));
 
-            bool passwordValida = BCrypt.Net.BCrypt.Verify(password, passwordHash);
+            bool passwordValida = BCrypt.Net.BCrypt.Verify(Password, passwordHash);
 
             if (!passwordValida)
                 return null;
@@ -64,7 +63,7 @@ namespace LoginMySQL.DAL
                 Id = reader.GetInt32(reader.GetOrdinal("id")),
                 Nome = reader.GetString(reader.GetOrdinal("nome")),
                 Email = reader.GetString(reader.GetOrdinal("email")),
-                Utilizador = reader.GetString(reader.GetOrdinal("usuario")),
+                Utilizador = reader.GetString(reader.GetOrdinal("Email")),
                 Role = reader.GetString(reader.GetOrdinal("role")),
                 Activo = reader.GetBoolean(reader.GetOrdinal("activo"))
             };

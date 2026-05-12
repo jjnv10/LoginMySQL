@@ -57,7 +57,10 @@
             mnInserir = new ToolStripMenuItem();
             mnTodosUtilizadores = new ToolStripMenuItem();
             verPerfilToolStripMenuItem = new ToolStripMenuItem();
+            statusStrip1 = new StatusStrip();
+            ssUser = new ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -79,13 +82,13 @@
             // novoToolStripMenuItem
             // 
             novoToolStripMenuItem.Name = "novoToolStripMenuItem";
-            novoToolStripMenuItem.Size = new Size(180, 22);
+            novoToolStripMenuItem.Size = new Size(103, 22);
             novoToolStripMenuItem.Text = "Novo";
             // 
             // sairToolStripMenuItem
             // 
             sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            sairToolStripMenuItem.Size = new Size(180, 22);
+            sairToolStripMenuItem.Size = new Size(103, 22);
             sairToolStripMenuItem.Text = "Sair";
             sairToolStripMenuItem.Click += sairToolStripMenuItem_Click;
             // 
@@ -101,12 +104,14 @@
             novoToolStripMenuItem1.Name = "novoToolStripMenuItem1";
             novoToolStripMenuItem1.Size = new Size(117, 22);
             novoToolStripMenuItem1.Text = "Novo";
+            novoToolStripMenuItem1.Click += novoToolStripMenuItem1_Click;
             // 
             // todosToolStripMenuItem
             // 
             todosToolStripMenuItem.Name = "todosToolStripMenuItem";
             todosToolStripMenuItem.Size = new Size(117, 22);
             todosToolStripMenuItem.Text = "Todos";
+            todosToolStripMenuItem.Click += todosToolStripMenuItem_Click;
             // 
             // editarToolStripMenuItem
             // 
@@ -132,12 +137,14 @@
             novoToolStripMenuItem2.Name = "novoToolStripMenuItem2";
             novoToolStripMenuItem2.Size = new Size(117, 22);
             novoToolStripMenuItem2.Text = "Novo";
+            novoToolStripMenuItem2.Click += novoToolStripMenuItem2_Click;
             // 
             // todosToolStripMenuItem1
             // 
             todosToolStripMenuItem1.Name = "todosToolStripMenuItem1";
             todosToolStripMenuItem1.Size = new Size(117, 22);
             todosToolStripMenuItem1.Text = "Todos";
+            todosToolStripMenuItem1.Click += todosToolStripMenuItem1_Click;
             // 
             // editarToolStripMenuItem1
             // 
@@ -162,7 +169,7 @@
             // 
             disciplinasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novaToolStripMenuItem, todasToolStripMenuItem, eliminarToolStripMenuItem2 });
             disciplinasToolStripMenuItem.Name = "disciplinasToolStripMenuItem";
-            disciplinasToolStripMenuItem.Size = new Size(154, 22);
+            disciplinasToolStripMenuItem.Size = new Size(180, 22);
             disciplinasToolStripMenuItem.Text = "Disciplina";
             // 
             // novaToolStripMenuItem
@@ -170,12 +177,14 @@
             novaToolStripMenuItem.Name = "novaToolStripMenuItem";
             novaToolStripMenuItem.Size = new Size(117, 22);
             novaToolStripMenuItem.Text = "Nova";
+            novaToolStripMenuItem.Click += novaToolStripMenuItem_Click;
             // 
             // todasToolStripMenuItem
             // 
             todasToolStripMenuItem.Name = "todasToolStripMenuItem";
             todasToolStripMenuItem.Size = new Size(117, 22);
             todasToolStripMenuItem.Text = "Todas";
+            todasToolStripMenuItem.Click += todasToolStripMenuItem_Click;
             // 
             // eliminarToolStripMenuItem2
             // 
@@ -187,37 +196,38 @@
             // 
             todasMatriculasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { novaToolStripMenuItem1, todasToolStripMenuItem1, editarToolStripMenuItem2, fazerToolStripMenuItem });
             todasMatriculasToolStripMenuItem.Name = "todasMatriculasToolStripMenuItem";
-            todasMatriculasToolStripMenuItem.Size = new Size(154, 22);
+            todasMatriculasToolStripMenuItem.Size = new Size(180, 22);
             todasMatriculasToolStripMenuItem.Text = "Matricula";
             // 
             // novaToolStripMenuItem1
             // 
             novaToolStripMenuItem1.Name = "novaToolStripMenuItem1";
-            novaToolStripMenuItem1.Size = new Size(105, 22);
+            novaToolStripMenuItem1.Size = new Size(180, 22);
             novaToolStripMenuItem1.Text = "Nova";
             // 
             // todasToolStripMenuItem1
             // 
             todasToolStripMenuItem1.Name = "todasToolStripMenuItem1";
-            todasToolStripMenuItem1.Size = new Size(105, 22);
+            todasToolStripMenuItem1.Size = new Size(180, 22);
             todasToolStripMenuItem1.Text = "Todas";
+            todasToolStripMenuItem1.Click += todasToolStripMenuItem1_Click;
             // 
             // editarToolStripMenuItem2
             // 
             editarToolStripMenuItem2.Name = "editarToolStripMenuItem2";
-            editarToolStripMenuItem2.Size = new Size(105, 22);
+            editarToolStripMenuItem2.Size = new Size(180, 22);
             editarToolStripMenuItem2.Text = "Editar";
             // 
             // fazerToolStripMenuItem
             // 
             fazerToolStripMenuItem.Name = "fazerToolStripMenuItem";
-            fazerToolStripMenuItem.Size = new Size(105, 22);
+            fazerToolStripMenuItem.Size = new Size(180, 22);
             fazerToolStripMenuItem.Text = "Fazer";
             // 
             // fazerMatriculaToolStripMenuItem
             // 
             fazerMatriculaToolStripMenuItem.Name = "fazerMatriculaToolStripMenuItem";
-            fazerMatriculaToolStripMenuItem.Size = new Size(154, 22);
+            fazerMatriculaToolStripMenuItem.Size = new Size(180, 22);
             fazerMatriculaToolStripMenuItem.Text = "Fazer Matricula";
             // 
             // utilizadorToolStripMenuItem
@@ -230,33 +240,56 @@
             // mnInserir
             // 
             mnInserir.Name = "mnInserir";
-            mnInserir.Size = new Size(180, 22);
+            mnInserir.Size = new Size(120, 22);
             mnInserir.Text = "Inserir";
             mnInserir.Click += mnInserir_Click;
             // 
             // mnTodosUtilizadores
             // 
             mnTodosUtilizadores.Name = "mnTodosUtilizadores";
-            mnTodosUtilizadores.Size = new Size(180, 22);
+            mnTodosUtilizadores.Size = new Size(120, 22);
             mnTodosUtilizadores.Text = "Todos";
+            mnTodosUtilizadores.Click += mnTodosUtilizadores_Click;
             // 
             // verPerfilToolStripMenuItem
             // 
             verPerfilToolStripMenuItem.Name = "verPerfilToolStripMenuItem";
-            verPerfilToolStripMenuItem.Size = new Size(180, 22);
+            verPerfilToolStripMenuItem.Size = new Size(120, 22);
             verPerfilToolStripMenuItem.Text = "Ver Perfil";
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { ssUser });
+            statusStrip1.Location = new Point(0, 428);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(800, 22);
+            statusStrip1.TabIndex = 1;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // ssUser
+            // 
+            ssUser.ActiveLinkColor = Color.Green;
+            ssUser.AutoToolTip = true;
+            ssUser.BackColor = Color.Green;
+            ssUser.Name = "ssUser";
+            ssUser.Size = new Size(10, 17);
+            ssUser.Text = ".";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -292,5 +325,7 @@
         private ToolStripMenuItem todasToolStripMenuItem1;
         private ToolStripMenuItem editarToolStripMenuItem2;
         private ToolStripMenuItem fazerToolStripMenuItem;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel ssUser;
     }
 }
