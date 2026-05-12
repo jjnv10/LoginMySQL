@@ -10,8 +10,9 @@ namespace LoginMySQL.DAL
     public static class MatriculaDAL
     {
 
-        public static void InserirMatricula(Matricula matricula)
+        public static string InserirMatricula(Matricula matricula)
         {
+            string info = string.Empty;
             using var conexao = ConexaoMySQL.ObterConexao();
             
             conexao.Open();
@@ -21,15 +22,29 @@ namespace LoginMySQL.DAL
             (id_estudante, id_disciplina, estado, data_matricula)
         VALUES 
             (@idEstudante, @idDisciplina, @estado, @dataMatricula);";
+            try
+            {
+                using var comando = new MySqlCommand(sql, conexao);
 
-            using var comando = new MySqlCommand(sql, conexao);
+                comando.Parameters.AddWithValue("@idEstudante", matricula.Estudante.IdEstudante);
+                comando.Parameters.AddWithValue("@idDisciplina", matricula.Disciplina.IdDisciplina);
+                comando.Parameters.AddWithValue("@estado", matricula.Estado);
+                comando.Parameters.AddWithValue("@dataMatricula", matricula.DataMatricula);
 
-            comando.Parameters.AddWithValue("@idEstudante", matricula.Estudante.IdEstudante);
-            comando.Parameters.AddWithValue("@idDisciplina", matricula.Disciplina.IdDisciplina);
-            comando.Parameters.AddWithValue("@estado", matricula.Estado);
-            comando.Parameters.AddWithValue("@dataMatricula", matricula.DataMatricula);
+                comando.ExecuteNonQuery();
 
-            comando.ExecuteNonQuery();
+                info = "Matricula feita!";
+            }
+            catch (Exception ex)
+            {
+
+                info = ex.Message;
+            }
+            finally { conexao.Close(); }
+            
+
+
+            return info;
      
         }
 

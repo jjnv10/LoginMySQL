@@ -24,5 +24,10 @@ namespace Menu.Modelos
             DataMatricula = DateTime.Now;   
             
         }
+
+        public override string ToString()
+        {
+            return Estado;
+        }
     }
 }

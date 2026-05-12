@@ -56,8 +56,8 @@ namespace LoginMySQL.DAL
             {
                 string sql = @"
         SELECT 
-            d.id_disciplina,
-            d.nome AS nome_disciplina,
+            d.id_disciplina AS ID,
+            d.nome AS Disciplina,
             d.codigo,
             d.carga_horaria,
 

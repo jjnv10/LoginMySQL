@@ -81,10 +81,10 @@ namespace Menu.DAL
                 transacao.Commit();
                 info = "Estudante Inserido!";
             }
-            catch
+            catch(Exception ex) 
             {
                 transacao.Rollback();
-                throw;
+                info = ex.Message;
             }
 
             return info;
